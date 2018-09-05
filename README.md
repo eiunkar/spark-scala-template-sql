@@ -1,3 +1,7 @@
+# Notes
+
+This image is an extension to [big-data-europe/docker-spark README](https://github.com/big-data-europe/docker-spark)
+
 # Spark Scala template
 
 The Spark Scala template image serves as a base image to build your own Scala
@@ -11,7 +15,7 @@ for a description how to setup a Spark cluster.
 spark-shell:
 
 ```
-docker run -it --rm eiunkar/spark-scala-template-sql sbt console
+docker run -it --rm eiunkar/spark-scala-template-sql:1.2 sbt console
 ```
 
 You can also use directly your Docker image and test your own code that way.
@@ -44,7 +48,7 @@ dependencies.
   * `SPARK_APPLICATION_ARGS` (default: "")
 4. Build and run the image:
 ```
-docker build --rm=true -t bde/spark-app .
+docker build --rm=true -t eiunkar/spark-app .
 docker run --name my-spark-app --link spark-master:spark-master -d eiunkar/spark-app
 ```
 
@@ -62,7 +66,7 @@ the `/template.sh` script at the end.
 #### Example Dockerfile
 
 ```
-FROM eiunkar/spark-scala-template-sql:1.1
+FROM eiunkar/spark-scala-template-sql:1.2
 
 
 ENV SPARK_APPLICATION_MAIN_CLASS my.Application
